@@ -66,6 +66,7 @@ def encontrar_telefones(soup):
 	regex = re.findall(r"\(?0?([1-9]{2})[ \-\.]{0,2}(9\d{4})[ \-\.]?(\d{4})", anuncio)
 	print('Possiveis números de telefone: ', regex)
 	
+
 def mostrar_telefones():
 	num = 0
 	for num in range(1,14):
@@ -75,7 +76,7 @@ def mostrar_telefones():
 		anuncio = buscar(DOMINIO + resposta[num])
 		soup_anuncio = parsing(anuncio)
 		encontrar_telefones(soup_anuncio)
-		
+	
 
 
 #mostrar_anuncios()
