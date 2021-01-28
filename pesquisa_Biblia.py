@@ -19,7 +19,7 @@ def parsing(resposta_url):
 		soup = BeautifulSoup(resposta_url, 'html.parser')
 		return soup
 	except:
-		print('Ocorreu alum problema!')
+		print('Ocorreu algum problema!')
 		
 def buscar_livro(soup):
 	try:
