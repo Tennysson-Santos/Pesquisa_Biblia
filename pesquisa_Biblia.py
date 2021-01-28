@@ -24,7 +24,9 @@ def parsing(resposta_url):
 def buscar_livro(soup):
 	try:
 		livro = soup.find('div', class_='jss40')
-		num = int(input('\nDigite o versículo: '))
+		versiculos = len(livro.find_all('p'))
+		print(f'Neste livro tem: {versiculos - 1} versículos!')
+		num = int(input('\nEscolha um versículo: '))
 		num -= 1
 		livros = livro.find_all('p')[num].get_text().strip()
 		return livros
