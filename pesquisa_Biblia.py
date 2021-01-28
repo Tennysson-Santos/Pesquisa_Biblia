@@ -24,7 +24,9 @@ def parsing(resposta_url):
 def buscar_livro(soup):
 	try:
 		livro = soup.find('div', class_='jss40')
-		livros = livro.find_all('p')
+		num = int(input('\nDigite o versículo: '))
+		num -= 1
+		livros = livro.find_all('p')[num].get_text().strip()
 		return livros
 	except:
 		print('Ocorreu algum problema!')
@@ -44,7 +46,8 @@ def salvar_livro():
 	soup = parsing(busca)
 	livro = buscar_livro(soup)
 	BIBLIA.append(livro)
-	with open('biblia.text', 'w') as arquivo:
+	print(livro)
+	with open('biblia.doc', 'w') as arquivo:
 		arquivo.write(f'{BIBLIA}')
 
 if __name__ == "__main__":
@@ -57,5 +60,7 @@ if __name__ == "__main__":
 livro = input('\nDigite um livro: ')
 cap = int(input('\nDigite um capítulo: '))
 URL = 'https://www.bibliaonline.com.br/naa/'+livro+'/'+str(cap)
-mostrar_livro()
+salvar_livro()
+#mostrar_livro()
+
 
